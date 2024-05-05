@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Book",
+    "price": 9.99,
+    "url": "https://shadycharacters.co.uk/wp/wp-content/uploads/2016/12/Book_IMG_1754-1-e1481474081467.jpg",
+    "description": "You can read it!"
+  },
+  {
+    "id": 2,
+    "name": "Headphones",
+    "price": 249.99,
+    "url": "https://cdn.mos.cms.futurecdn.net/fsDKHB3ZyNJK6zMpDDBenB.jpg",
+    "description": "Listen to stuff!"
+  },
+  {
+    "id": 3,
+    "name": "Backpack",
+    "price": 79.99,
+    "url": "https://images.unsplash.com/photo-1594299447935-e5b840f54b9b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGJhY2twYWNrfGVufDB8fDB8fHww",
+    "description": "Carry things around town!"
+  },
+  {
+    "id": 4,
+    "name": "Glasses",
+    "price": 129.99,
+    "url": "https://media.self.com/photos/5dd44cf5d0525b0009f5edf6/4:3/w_2560%2Cc_limit/AdobeStock_208000726.jpeg",
+    "description": "Now you can see!"
+  },
+  {
+    "id": 5,
+    "name": "Cup",
+    "price": 4.99,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Cup_and_Saucer_LACMA_47.35.6a-b_%281_of_3%29.jpg/640px-Cup_and_Saucer_LACMA_47.35.6a-b_%281_of_3%29.jpg",
+    "description": "Drink anything with it!"
+  },
+  {
+    "id": 6,
+    "name": "Shirt",
+    "price": 29.99,
+    "url": "https://media.istockphoto.com/id/1328049157/photo/mens-short-sleeve-t-shirt-mockup-in-front-and-back-views.jpg?s=612x612&w=0&k=20&c=1_zfKF73GEFp5RtLEyQQn8ZH5UB5THiom2pBSXb9-Uw=",
+    "description": "Wear it with style!"
+  },
+  {
+    "id": 7,
+    "name": "Laptop",
+    "price": 1229.99,
+    "url": "https://photo2.tinhte.vn/data/attachment-files/2024/01/8236641_1704423805683.jpg",
+    "description": "Best laptop of the year!"
+  },
+  {
+    "id": 8,
+    "name": "Shirt",
+    "price": 529.99,
+    "url": "https://upweek.ru/wp-content/uploads/2024/03/5090.jpg",
+    "description": "The way make you play"
+  }
+]

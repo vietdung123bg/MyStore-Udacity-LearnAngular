@@ -1,0 +1,45 @@
+<div *ngIf="product" class="detail-container">
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+    <div fxLayout="column" fxLayoutAlign="space-between center">
+      <img class="product-image" src="{{ product.url }}" />
+    </div>
+    <div class="detail-item">
+      <div class="product-item-detail product-title">
+        <h2>{{ product.name }}</h2>
+      </div>
+      <div class="product-item-detail">$ {{ product.price }}</div>
+      <div class="product-item-detail" style="margin-bottom: 0px">
+        <p>{{ product.description }}</p>
+      </div>
+      <form (ngSubmit)="onSubmit(product, $event)">
+        <input
+          type="number"
+          name="numberOfProductItem"
+          style="width: 200px"
+          class="product-item-detail form-control"
+          placeholder="Number Of Item"
+          [(ngModel)]="numberOfItem"
+          min="0"
+        />
+        <input
+          type="submit"
+          value="Add to Cart"
+          class="product-item-detail btn btn-primary"
+        />
+      </form>
+      <div class="product-item-detail">
+        <a routerLink="/"> &larr;Return to product list </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!product" class="detail-container">
+  <div>
+    <h1>This Product Is Not Exists</h1>
+  </div>
+  <div>
+    <a routerLink="/" class="btn btn-primary btn-lg active" role="button">
+      &larr;Return to product list
+    </a>
+  </div>
+</div>
