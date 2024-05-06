@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../../models/Product';
 import { CartProduct } from '../../models/CartOfProduct';
-import { ProductService } from '../../services/product/product.service';
 import { CartService } from '../../services/cart/cart.service';
 
 @Component({
@@ -42,6 +41,8 @@ export class CartComponent implements OnInit {
 
   checkoutCart(fullName: string) {
     this.cartService.clearCart();
-    this.route.navigateByUrl(`/checkout/${fullName}/${this.totalPrice}`);
+    this.route.navigateByUrl('/checkout', {
+      state: { fullName: fullName, totalPrice: this.totalPrice },
+    });
   }
 }

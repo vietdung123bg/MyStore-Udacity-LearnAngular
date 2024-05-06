@@ -13,19 +13,7 @@
       </div>
       <div class="product-detail">$ {{ product.price }}</div>
 
-      <form (ngSubmit)="onSubmit(product, $event)">
-        <!-- <select
-          class="product-detail form-select"
-          aria-label="Default select example"
-        >
-          <option
-            *ngFor="let product_option of productCount"
-            [ngValue]="product_option"
-            [selected]="product_option === '1'"
-          >
-            {{ product_option }}
-          </option>
-        </select> -->
+      <form (ngSubmit)="onSubmit(product, $event, i)">
         <input
           type="number"
           name="numberOfProductItem"
@@ -33,7 +21,7 @@
           class="product-item-detail form-control"
           placeholder="Number Of Item"
           [(ngModel)]="listNumberOfItem[i]"
-          min="0"
+          min="1"
         />
         <input
           type="submit"

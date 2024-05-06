@@ -25,41 +25,43 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  onSubmit(product: Product, event: any): boolean {
+  onSubmit(product: CartProduct, event: any, index: any): boolean {
     let newCartProduct: CartProduct[] = [];
     let message: string = '';
-    let isExistInCart: boolean = false;
 
-    const listProducts: CartProduct[] | [] =
+    const listProductsInCart: CartProduct[] =
       this.cartService.getProductOfCart();
 
-    const productIndex = listProducts.findIndex(
-      (prod) => prod.id === product.id
-    );
-    newCartProduct = listProducts;
+    const chkProductInCart = this.cartService.checkProductInCart(index + 1);
 
-    if (productIndex === -1 || newCartProduct.length === 0) {
-      newCartProduct.push(
-        Object.assign(product, { numberOfItem: this.listNumberOfItem[0] })
-      );
-      message = `New Item '${product.name}' added to cart with ${this.listNumberOfItem[0]} items`;
+    newCartProduct = listProductsInCart;
+
+    if (!chkProductInCart || newCartProduct.length === 0) {
+      product.numberOfItem = this.listNumberOfItem[index];
+      newCartProduct.push(product);
+      this.cartService.addToCart(newCartProduct);
+      message = `New Item '${product.name}' added to cart with ${this.listNumberOfItem[index]} items`;
     } else {
-      const numberItem: number = newCartProduct[productIndex].numberOfItem;
-      isExistInCart = numberItem === this.listNumberOfItem[productIndex];
+      const productExists = newCartProduct.find((prod) => {
+        return prod.id === index + 1;
+      });
 
-      if (isExistInCart) {
-        message = `${numberItem} Item(s) of '${product.name}' already exist in cart.`;
-        console.log(product);
-      } else {
-        newCartProduct[productIndex].id = product.id;
-        newCartProduct[productIndex].numberOfItem =
-          this.listNumberOfItem[productIndex];
-        console.log(product);
-        message = `${numberItem} Item(s) of '${product.name}' already exist in cart. Will be updated to ${this.listNumberOfItem[productIndex]}`;
+      if (productExists) {
+        const numberItem: number = productExists.numberOfItem;
+        productExists.numberOfItem += this.listNumberOfItem[index];
+        const idxOfProductInCart = newCartProduct.findIndex(
+          (prod) => prod.id === productExists.id
+        );
+        newCartProduct.splice(idxOfProductInCart, 1);
+        newCartProduct.splice(idxOfProductInCart, 0, productExists);
+        this.cartService.addToCart(newCartProduct);
+        message = `${numberItem} Item(s) of '${
+          product.name
+        }' already exist in cart. Will be updated to ${
+          this.listNumberOfItem[index] + numberItem
+        } items`;
       }
     }
-
-    !isExistInCart ? this.cartService.addToCart(newCartProduct) : null;
 
     alert(message);
 

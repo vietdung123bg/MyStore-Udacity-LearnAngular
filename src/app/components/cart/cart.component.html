@@ -7,13 +7,13 @@
         <div class="product-item-detail">$ {{ cartProduct.price }}</div>
         <div class="product-item-detail">
           <input
-            type="number"
+            type="text"
             name="numberOfProductItem"
             style="width: 100px"
             class="product-item-detail form-control"
             value="{{ cartProduct.numberOfItem }}"
             aria-label="Default select example"
-            min="0"
+            disabled
           />
         </div>
         <div class="product-item-detail">

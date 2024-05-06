@@ -21,4 +21,16 @@ export class CartService {
   clearCart(): void {
     this.myStorage.clear();
   }
+
+  checkProductInCart(id: number): boolean {
+    const lstProductsInCart = this.getProductOfCart();
+    if (lstProductsInCart.length != 0) {
+      for (let i = 0; i < lstProductsInCart.length; i++) {
+        if (lstProductsInCart[i].id == id) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
