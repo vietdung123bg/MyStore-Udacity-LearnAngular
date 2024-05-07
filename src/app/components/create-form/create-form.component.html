@@ -34,6 +34,13 @@
     class="form-control"
   />
   <br />
+  <div
+    *ngIf="!checkValidCredit"
+    class="alert alert-warning form-control"
+    role="alert"
+  >
+    {{ alert }}
+  </div>
   <input
     [disabled]="form.invalid"
     type="submit"

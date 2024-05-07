@@ -11,10 +11,17 @@ export class CreateFormComponent implements OnInit {
   constructor() {}
   fullName: string = '';
   address: string = '';
-  creditCard: number | string = '';
+  creditCard: string = '';
+  checkValidCredit: boolean = true;
+  alert: string = '';
 
   ngOnInit(): void {}
   onSubmit(): void {
-    this.checkoutCartCreateForm.emit(this.fullName);
+    if (/^\d+$/.test(this.creditCard)) {
+      this.checkoutCartCreateForm.emit(this.fullName);
+    } else {
+      this.checkValidCredit = false;
+      this.alert = 'Credit Card is Invalid';
+    }
   }
 }
