@@ -21,7 +21,7 @@ export class CreateFormComponent implements OnInit {
       this.checkoutCartCreateForm.emit(this.fullName);
     } else {
       this.checkValidCredit = false;
-      this.alert = 'Credit Card is Invalid';
+      this.alert = 'Credit Card is Invalid. Number Only';
     }
   }
 }
